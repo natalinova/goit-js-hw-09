@@ -76,14 +76,15 @@ function onStartClick(e) {
 }
 
 function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
+  
   return new Promise((resolve, reject) => {
+    const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
       if (shouldResolve) {
       // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`)
         resolve({ position, delay });
       } else {
-        reject({ position, delay });
+        reject({ position, delay});
       // console.log(`❌ Rejected promise ${position} in ${delay}ms`)
     }
     },delay )
