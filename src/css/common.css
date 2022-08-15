@@ -16,3 +16,39 @@ img {
   display: block;
   max-width: 100%;
 }
+input{
+  width: 200px;
+  color: darkgreen;
+  font-size: 20px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #0ba062;
+  border-radius: 10px;
+
+}
+button{
+  font-size: 20px;
+  width: 200px;
+  height: 40px;
+  background-color: darkgreen;
+  border-radius: 10px;
+}
+.timer {
+  display: flex;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+}
+.value {
+  font-size: 35px;
+  text-align: center;
+  color: darkgreen;
+}
+.label {
+  text-align: center;
+  color: darkslategray;
+  font-size: 20px;
+}
