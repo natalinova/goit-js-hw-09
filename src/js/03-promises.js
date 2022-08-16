@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+
 const form = document.querySelector('.form')
 const promiseDelay = document.querySelector('[name="delay"]');
 const promiseStep = document.querySelector('[name="step"]');
@@ -7,6 +8,7 @@ const buttonStart = document.querySelector('button')
 let startPosition = null;
 let delay = null;
 let amount = null;
+let position = 1;
 
 form.addEventListener('input', onFormInput)
 buttonStart.addEventListener('click', onStartClick);
@@ -21,8 +23,10 @@ function onDelayInputValue() {
   if (promiseDelay.value === '') {
     startPosition = 0;
   }
-  console.log(startPosition)
+  console.log(startPosition);
 }
+
+
 function onStepInputValue() {
   delay = Number(promiseStep.value);
   if (promiseStep.value === '') {
@@ -30,6 +34,8 @@ function onStepInputValue() {
   }
   console.log(delay)
 }
+
+
 function onAmountInputValue() {
   amount = Number(promiseAmount.value);
   if (promiseAmount.value === '') {
@@ -38,18 +44,12 @@ function onAmountInputValue() {
   }
   console.log(amount)
 }
+
+
 function onStartClick(e) {
   e.PreventDefault();
-  // const startPosition = Number(promiseDelay.value);
-  // console.log(startPosition)
-  // const step = Number(promiseStep.value);
-  // console.log(step)
-  // const amount = Number(promiseAmount.value);
-  // console.log(amount)
-
-  for (i = 1; i <= amount; i ++){
-    const position = i;
-    // console.log(position)
+for (let i = 1; i <= amount; i ++){
+    position = i;
     if (i === 1) {
       delay += startPosition;
       console.log(delay)
@@ -57,7 +57,7 @@ function onStartClick(e) {
     else {
       delay += step;
       console.log(delay)
-      
+    
     }
 
     
