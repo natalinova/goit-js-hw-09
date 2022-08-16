@@ -6,6 +6,7 @@ const promiseStep = document.querySelector('[name="step"]');
 const promiseAmount = document.querySelector('[name="amount"]');
 const buttonStart = document.querySelector('button')
 let startPosition = null;
+let step = null;
 let delay = null;
 let amount = null;
 let position = 1;
@@ -28,11 +29,11 @@ function onDelayInputValue() {
 
 
 function onStepInputValue() {
-  delay = Number(promiseStep.value);
+  step = Number(promiseStep.value);
   if (promiseStep.value === '') {
-    delay = 0;
+    step = 0;
   }
-  console.log(delay)
+  console.log(step)
 }
 
 
@@ -47,7 +48,7 @@ function onAmountInputValue() {
 
 
 function onStartClick(e) {
-  e.PreventDefault();
+  e.preventDefault();
 for (let i = 1; i <= amount; i ++){
     position = i;
     if (i === 1) {
@@ -62,8 +63,7 @@ for (let i = 1; i <= amount; i ++){
     
     createPromise(position,delay).then(({ position, delay }) => {
     Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
-  })
-      .catch(({ position, delay }) => {
+  }).catch(({ position, delay }) => {
     Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
     
   });
